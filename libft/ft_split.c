@@ -46,9 +46,9 @@ void	insert_word(char *one_dp, char *str, char *charset)
 	one_dp[i] = '\0';
 }
 
-size_t	execute_split(char **p, char *str, char *charset)
+int	execute_split(char **p, char *str, char *charset)
 {
-	size_t	i;
+	int	i;
 	int	w_len;
 	int	p_idx;
 

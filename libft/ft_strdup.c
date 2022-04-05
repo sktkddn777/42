@@ -1,23 +1,21 @@
 #include "libft.h"
 
-    char    *ft_strdup(const char *s)
-    {
-        int i;
-        int len;
-        char *new_s;
+char *strdup(const char *s1)
+{
+    size_t i;
+    size_t s1_len;
+    char *new;
 
-        i = 0;
-        len = 0;
-        while (s[len])
-            len++;
-        new_s = (char *)malloc(sizeof(char) * (len + 1));
-        if (!(new_s))
-            return (NULL);
-        while (s[i])
-        {
-            new_s[i] = s[i];
-            i++;
-        }
-        new_s[i] = '\0';
-        return (new_s);
+    i = 0;
+    s1_len = ft_strlen(s1);
+    new = (char *)malloc(sizeof(char) * (s1_len + 1));
+    if (!new)
+        return (0);
+    while (i < s1_len)
+    {
+        new[i] = s1[i];
+        i++;
     }
+    new[i] = '\0';
+    return (new);
+}
