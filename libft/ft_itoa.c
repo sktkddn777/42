@@ -27,7 +27,7 @@ char *ft_itoa(int n)
   char *p;
 
   length = get_len(n);
-  p = (char *)malloc(sizeof(char) * (length + 1))
+  p = (char *)malloc(sizeof(char) * (length + 1));
   if (!p)
     return (0);
   p[length] = '\0';
