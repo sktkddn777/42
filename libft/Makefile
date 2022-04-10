@@ -1,8 +1,12 @@
+NAME = libft.a
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-AR = ar rcs
-NAME = libft.a
+AR = ar
+ARFLAGS = -rcs
+
+
 FILES = ft_bzero \
 		ft_isalnum \
 		ft_isalpha \
@@ -51,16 +55,31 @@ SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
 SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(BONUS_FILES)))
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(SRCS_B:.c=.o)
-.c.o:       $(SRCS)
-			$(CC) $(CFLAGS) -c -o $@ $<
-$(NAME):    $(OBJS)
-			$(AR) $@ $^
-bonus:      $(BONUS_OBJS)
-			$(AR) $(NAME) $^
-all:        $(NAME)
+
+ifdef BONUS_FLAG
+	OBJS_FILES = $(OBJS) $(BONUS_OBJS)
+else
+	OBJS_FILES = $(OBJS)
+endif
+
+all: $(NAME)
+
+$(NAME) : $(OBJS_FILES)
+	$(AR) $(ARFLAGS) $@ $^
+
+
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-			$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
+
 fclean: clean
-			$(RM) $(NAME)
-re: clean all
+	$(RM) $(NAME)
+
+re: fclean all
+
+bonus:
+	@make BONUS_FLAG=1 all
+
 .PHONY: bonus all clean fclean re
