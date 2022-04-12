@@ -1,50 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/12 14:13:18 by sangwoha          #+#    #+#             */
+/*   Updated: 2022/04/12 14:25:09 by sangwoha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t get_len(int n)
+size_t	get_len(int n)
 {
-  size_t len;
-  len = 0;
+	size_t	len;
 
-  if (n == 0)
-    return (1);
-  if (n < 0)
-  {
-    len += 1;
-    n *= -1;
-  }
-  while (n > 9)
-  {
-    n /= 10;
-    len += 1;
-  }
-  return (len);
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+	{
+		len += 1;
+		n *= -1;
+	}
+	while (n > 9)
+	{
+		n /= 10;
+		len += 1;
+	}
+	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-  size_t i;
-  size_t length;
-  char *p;
+	size_t	i;
+	size_t	length;
+	char	*p;
 
-  length = get_len(n);
-  p = (char *)malloc(sizeof(char) * (length + 1));
-  if (!p)
-    return (0);
-  p[length] = '\0';
-  i = 0;
-  if (n < 0)
-  {
-    p[0] = '-';
-    i++;
-  }
-  while (i < length)
-  {
-    if (n < 0)
-      p[length] = '0' + n % 10 * (-1);
-    else
-      p[length] = '0' + n % 10;
-    n /= 10;
-    length--;
-  }
-  return (p);
+	length = get_len(n);
+	p = (char *)malloc(sizeof(char) * (length + 1));
+	if (!p)
+		return (0);
+	p[length] = '\0';
+	i = 0;
+	if (n < 0)
+	{
+		p[0] = '-';
+		i++;
+	}
+	while (i < length)
+	{
+		if (n < 0)
+			p[length] = '0' + n % 10 * (-1);
+		else
+			p[length] = '0' + n % 10;
+		n /= 10;
+		length--;
+	}
+	return (p);
 }

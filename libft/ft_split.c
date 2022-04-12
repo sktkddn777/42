@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/12 14:17:00 by sangwoha          #+#    #+#             */
+/*   Updated: 2022/04/12 14:57:23 by sangwoha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-size_t ft_countword(char const *s, char c)
+size_t	ft_countword(char const *s, char c)
 {
-	size_t count;
-	size_t i;
+	size_t	count;
+	size_t	i;
 
 	i = 0;
 	count = 0;
@@ -19,19 +31,21 @@ size_t ft_countword(char const *s, char c)
 	return (count);
 }
 
-size_t get_word_len(char const *s, char c)
+size_t	get_word_len(char const *s, char c)
 {
-	size_t len;
+	size_t	len;
+
 	len = 0;
 	while (s[len] != '\0' && s[len] != c)
 		len++;
 	return (len);
 }
-size_t execute_split(char **ptr, char const*s, char c)
+
+size_t	execute_split(char **ptr, char const *s, char c)
 {
-	size_t i;
-	size_t p_idx;
-	size_t w_len;
+	size_t	i;
+	size_t	p_idx;
+	size_t	w_len;
 
 	i = 0;
 	p_idx = 0;
@@ -53,22 +67,23 @@ size_t execute_split(char **ptr, char const*s, char c)
 	return (1);
 }
 
-void free_all(char **ptr)
+void	free_all(char **ptr)
 {
-	size_t i;
+	size_t	i;
+
 	i = 0;
 	while (ptr[i])
 		free(ptr[i++]);
 	free(ptr);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **ptr;
+	char	**ptr;
+
 	ptr = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
 	if (!ptr || !s)
 		return (0);
-	
 	if (!execute_split(ptr, s, c))
 	{
 		free_all(ptr);
