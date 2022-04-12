@@ -6,13 +6,13 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:23:37 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 14:23:47 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:02:58 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
 

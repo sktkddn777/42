@@ -6,7 +6,7 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:14:59 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 14:28:12 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:02:27 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	{
 		if (s1[i] == (unsigned char)c)
 			return (s1 + i);
+		i++;
 	}
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:15:29 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 14:58:35 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:03:38 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
 	unsigned char	*a;

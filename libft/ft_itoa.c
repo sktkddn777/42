@@ -6,7 +6,7 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:13:18 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 14:25:09 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:31:54 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,11 @@ size_t	get_len(int n)
 	if (n == 0)
 		return (1);
 	if (n < 0)
-	{
-		len += 1;
-		n *= -1;
-	}
-	while (n > 9)
+		len ++;
+	while (n)
 	{
 		n /= 10;
-		len += 1;
+		len ++;
 	}
 	return (len);
 }
@@ -49,14 +46,13 @@ char	*ft_itoa(int n)
 		p[0] = '-';
 		i++;
 	}
-	while (i < length)
+	while (i < length--)
 	{
 		if (n < 0)
 			p[length] = '0' + n % 10 * (-1);
 		else
 			p[length] = '0' + n % 10;
 		n /= 10;
-		length--;
 	}
 	return (p);
 }
