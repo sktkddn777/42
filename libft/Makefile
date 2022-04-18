@@ -45,10 +45,11 @@ BONUS_FILES = ft_lstnew \
 			ft_lstadd_front \
 			ft_lstsize \
 			ft_lstlast \
+			ft_lstmap \
 			ft_lstadd_back \
 			ft_lstdelone \
 			ft_lstclear \
-			ft_lstiter \
+			ft_lstiter
 			
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

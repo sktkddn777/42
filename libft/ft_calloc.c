@@ -6,7 +6,7 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:23:37 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 16:02:58 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:06:26 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
 
-	p = malloc(size * count);
+	p = (void *)malloc(size * count);
 	if (!p)
 		return (0);
-	ft_memset(p, 0, size * count);
+	ft_memset(p, 0, (size * count));
 	return (p);
 }

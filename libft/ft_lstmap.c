@@ -6,7 +6,7 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:14:30 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 14:38:44 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:11:22 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*node;
-	t_list	*new;
+	t_list	*new_lst;
+	t_list	*new_node;
 
-	if (!lst || !f || !del)
-		return (0);
-	while (lst)
+	node = lst;
+	new_lst = NULL;
+	while (node)
 	{
-		new = ft_lstnew(f(lst -> content));
-		if (!new)
+		new_node = ft_lstnew(f(node->content));
+		if (!new_node)
 		{
-			ft_lstclear(&node, del);
-			return (0);
+			ft_lstclear(&new_lst, del);
+			return ((void *)(0));
 		}
-		ft_lstadd_back(&node, new);
-		lst = lst -> next;
+		ft_lstadd_back(&new_lst, new_node);
+		node = node->next;
 	}
-	ft_lstdelone(new, del);
-	return (node);
+	new_node = NULL;
+	return (new_lst);
 }

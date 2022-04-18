@@ -6,7 +6,7 @@
 /*   By: sangwoha <sangwoha@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:13:41 by sangwoha          #+#    #+#             */
-/*   Updated: 2022/04/12 14:25:33 by sangwoha         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:26:49 by sangwoha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
+	t_list	*lst2;
 
-	if (!lst || !new)
-		return ;
-	else if (!(*lst) || new)
-	{
+	if (*lst == 0)
 		*lst = new;
-		return ;
+	else
+	{
+		lst2 = *lst;
+		while (lst2->next)
+			lst2 = lst2->next;
+		lst2->next = new;
 	}
-	tmp = *lst;
-	while (tmp -> next)
-		tmp = tmp -> next;
-	tmp -> next = new;
 }
