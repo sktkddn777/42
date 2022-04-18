@@ -33,3 +33,7 @@ $ source ~/.zshrc
 <br>
 
 reference : [42서울 과제 편하게 하기](https://velog.io/@seomoon/42-%EC%9C%88%EB%8F%84%EC%9A%B010-wsl2%EC%97%90%EC%84%9C-42%EC%84%9C%EC%9A%B8-%EA%B3%BC%EC%A0%9C-%ED%8E%B8%ED%95%98%EA%B2%8C-%ED%95%98%EA%B8%B0norm-42%ED%97%A4%EB%8D%94-git-config-%EB%93%B1)
+
+
+## Notion
+[Libft](https://www.notion.so/libft-50785566cd7948baa14e7d435cbd1ab1)
